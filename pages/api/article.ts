@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
+// Just a test api call to see if it works
 const Article = (_: NextApiRequest, res: NextApiResponse) => {
   res.statusCode = 200;
   res.json({

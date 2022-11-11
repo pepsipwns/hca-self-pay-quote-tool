@@ -1,4 +1,5 @@
 import { NextApiResponse } from "next";
+import { Button } from "../components/Button/Button";
 
 interface HomeProps {
   article: {
@@ -34,15 +35,26 @@ const Home = (props: HomeProps) => {
         <figure className="lg:flex bg-gray-200 rounded-xl p-8 lg:p-4">
           {Image}
           <div className="pt-6 lg:p-4 text-center lg:text-left space-y-4">
-            <p className="text-lg font-semibold">{content}</p>
-            <figcaption className="font-medium">
-              <div className="text-blue-600">{author}</div>
-              <div className="text-gray-500">{company}</div>
-              <h4>This is h4 test</h4>
-              <div className="text-hca-red text-sm">
-                Test small red text
-              </div>
-            </figcaption>
+            <Button variant="primary" label="Primary" />
+            <Button variant="secondary" label="Secondary" />
+            <Button variant="dark-outline" label="Dark Outline" />
+            <Button variant="light-outline" label="White Outline" />
+            <Button variant="primary" size="small" label="Primary" />
+            <Button
+              variant="secondary"
+              size="small"
+              label="Secondary"
+            />
+            <Button
+              variant="dark-outline"
+              size="small"
+              label="Dark Outline"
+            />
+            <Button
+              variant="light-outline"
+              size="small"
+              label="White Outline"
+            />
           </div>
         </figure>
       </div>
