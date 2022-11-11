@@ -1,6 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+  h1 {
+    /* H1 - 90px */
+    font-size: 5.625rem;
+    line-height: 6.75rem;
+    font-weight: 700;
+  }
+  h2 {
+    /* H2 - 70px */
+    font-size: 4.375rem;
+    line-height: 4.6875rem;
+    font-weight: 700;
+  }
+  h3 {
+    /* H3 - 54px */
+    font-size: 3.375rem;
+    line-height: 3.75rem;
+    font-weight: 700;
+  }
+  h4 {
+    /* H4 - 40px */
+    font-size: 2.5rem;
+    line-height: 3rem;
+    font-weight: 700;
+  }
+  h5 {
+    /* H5 - 28px */
+    font-size: 1.75rem;
+    line-height: 2.275rem;
+    font-weight: 400;
+  }
+  h6 {
+    /* H6 - 24px */
+    font-size: 1.5rem;
+    line-height: 1.95rem;
+    font-weight: 400;
+  }
+}
 
 html,
 body {

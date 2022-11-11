@@ -38,6 +38,10 @@ const Home = (props: HomeProps) => {
             <figcaption className="font-medium">
               <div className="text-blue-600">{author}</div>
               <div className="text-gray-500">{company}</div>
+              <h4>This is h4 test</h4>
+              <div className="text-hca-red text-sm">
+                Test small red text
+              </div>
             </figcaption>
           </div>
         </figure>
