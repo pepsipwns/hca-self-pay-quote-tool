@@ -1,5 +1,6 @@
 import { NextApiResponse } from "next";
 import { Button } from "../components/Button/Button";
+import { Link } from "../components/Link/Link";
 
 interface HomeProps {
   article: {
@@ -55,6 +56,11 @@ const Home = (props: HomeProps) => {
               size="small"
               label="White Outline"
             />
+            <Link href="/" label="Link" classNames="text-xs" />
+            <Link href="/" label="Link" classNames="text-sm" />
+            <Link href="/" label="Link" />
+            <Link href="/" label="Link" classNames="text-lg" />
+            <Link href="/" label="Link" classNames="text-xl" />
           </div>
         </figure>
       </div>

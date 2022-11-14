@@ -12,4 +12,14 @@ describe("Button", () => {
       "bg-hca-blue-500 text-white hover:bg-hca-blue-600"
     );
   });
+  it("Secondary variant contains the correct label and style", async () => {
+    const { getByText, getByTestId, getByRole } = render(
+      <Button label="Button Title" variant="secondary" />
+    );
+
+    expect(getByText("Button Title")).toBeVisible();
+    expect(getByRole("button")).toHaveClass(
+      "bg-hca-orange-500 text-white hover:bg-hca-orange-600"
+    );
+  });
 });
