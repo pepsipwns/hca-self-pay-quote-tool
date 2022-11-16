@@ -39,20 +39,21 @@ module.exports = {
         "hca-red": "#E00000",
       },
       spacing: {
-        1: "8px",
-        2: "16px",
-        3: "24px",
-        4: "32px",
-        5: "40px",
-        6: "48px",
-        7: "56px",
-        8: "64px",
-        9: "72px",
-        10: "80px",
+        // 8px - 0.5rem
+        1: ".5rem",
+        2: "1rem",
+        3: "1.5rem",
+        4: "2rem",
+        5: "2.5rem",
+        6: "3rem",
+        7: "3.5rem",
+        8: "4rem",
+        9: "4.5rem",
+        10: "5rem",
       },
       fontSize: {
         // fontSize: 12px, lineHeight: 16.8px
-        xs: ["0.75rem", "1.05rem"],
+        xs: [".75rem", "1.05rem"],
         // fontSize: 14px, lineHeight: 19.6px
         sm: ["0.875rem", "1.225rem"],
         // fontSize: 16px, lineHeight: 22.4px

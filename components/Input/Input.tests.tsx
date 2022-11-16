@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { Link } from "./Link";
+import { Link } from "./Input";
 
 describe("Link", () => {
   it("Default link contains the correct label and href", async () => {
@@ -13,7 +13,7 @@ describe("Link", () => {
 
   it("Small link contains the correct label, href and style", async () => {
     const { getByText, getByTestId, getByRole } = render(
-      <Link label="Link Title" href="/test" className="text-sm" />
+      <Link label="Link Title" href="/test" classNames="text-sm" />
     );
 
     expect(getByText("Link Title")).toBeVisible();

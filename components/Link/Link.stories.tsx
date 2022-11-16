@@ -22,27 +22,27 @@ Base.args = {
 export const ExtraSmall = Template.bind({});
 ExtraSmall.args = {
   href: "/",
-  classNames: "text-xs",
+  className: "text-xs",
   label: "Link",
 };
 
 export const Small = Template.bind({});
 Small.args = {
   href: "/",
-  classNames: "text-sm",
+  className: "text-sm",
   label: "Link",
 };
 
 export const Large = Template.bind({});
 Large.args = {
   href: "/",
-  classNames: "text-lg",
+  className: "text-lg",
   label: "Link",
 };
 
 export const ExtraLarge = Template.bind({});
 ExtraLarge.args = {
   href: "/",
-  classNames: "text-xl",
+  className: "text-xl",
   label: "Link",
 };

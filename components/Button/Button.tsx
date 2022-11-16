@@ -5,6 +5,7 @@ interface ButtonProps {
     | "dark-outline"
     | "light-outline";
   size?: "small" | "medium";
+  className?: string;
   label?: string;
 }
 
@@ -33,11 +34,11 @@ const getPadding = (size?: string) => {
 };
 
 export const Button = (props: ButtonProps) => {
-  const { variant, size, label } = props;
+  const { variant, size, label, className } = props;
   return (
     <button
       className={`${getClasses(variant)} ${getPadding(size)} 
-      rounded-md text-sm font-medium whitespace-nowrap`}
+      ${className} rounded-md text-sm font-medium`}
     >
       {label}
     </button>
@@ -47,5 +48,6 @@ export const Button = (props: ButtonProps) => {
 Button.defaultProps = {
   variant: "primary",
   size: "medium",
+  className: "",
   label: "",
 };
