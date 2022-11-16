@@ -1,23 +1,13 @@
 import { render } from "@testing-library/react";
-import { Link } from "./Input";
+import { Input } from "./Input";
 
-describe("Link", () => {
-  it("Default link contains the correct label and href", async () => {
-    const { getByText, getByTestId, getByRole } = render(
-      <Link label="Link Title" href="/test" />
+describe("Input", () => {
+  it("Input contains the correct label and placeholder", async () => {
+    const { getByText, getByPlaceholderText } = render(
+      <Input label="Input Title" id="input_title" />
     );
 
-    expect(getByText("Link Title")).toBeVisible();
-    expect(getByTestId("HCALink")).toHaveAttribute("href", "/test");
-  });
-
-  it("Small link contains the correct label, href and style", async () => {
-    const { getByText, getByTestId, getByRole } = render(
-      <Link label="Link Title" href="/test" classNames="text-sm" />
-    );
-
-    expect(getByText("Link Title")).toBeVisible();
-    expect(getByTestId("HCALinkLabel")).toHaveClass("text-sm");
-    expect(getByTestId("HCALink")).toHaveAttribute("href", "/test");
+    expect(getByText("Input Title")).toBeVisible();
+    expect(getByPlaceholderText("Input Title")).toBeVisible();
   });
 });
