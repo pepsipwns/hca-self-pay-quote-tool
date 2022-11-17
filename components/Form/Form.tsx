@@ -19,6 +19,7 @@ export const Form = (props: FormProps) => {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors },
   } = useForm();
 
@@ -34,6 +35,7 @@ export const Form = (props: FormProps) => {
                   ...{
                     ...child.props,
                     register,
+                    control,
                     errors,
                     key: child.props.id,
                   },

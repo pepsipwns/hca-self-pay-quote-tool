@@ -1,6 +1,8 @@
 import { useForm } from "react-hook-form";
 import { Form } from "../components/Form/Form";
 import { Input } from "../components/Input/Input";
+import { Select } from "../components/Select/Select";
+import { countryOptions } from "../components/Select/Select.testdata";
 
 interface HomeProps {
   article: {
@@ -17,9 +19,15 @@ const Home = (props: HomeProps) => {
     <div>
       <Form onSubmit={(data) => console.log(data)} className="p-10">
         <h1>Home</h1>
-        <Input label="First Name" id="first_name" />
-        <Input label="Last Name" id="last_name" required />
-        <Input label="Phone Number" id="phone_no" required />
+        <Input id="first_name" label="First Name" />
+        <Input id="last_name" label="Last Name" required />
+        <Input id="phone_no" label="Phone Number" required />
+        <Select
+          id="country"
+          label="Country"
+          options={countryOptions}
+          required
+        />
       </Form>
     </div>
   );

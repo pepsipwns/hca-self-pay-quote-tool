@@ -3,7 +3,7 @@ import {
   FieldValues,
   UseFormRegister,
 } from "react-hook-form";
-import Error from "../../public/Error.svg";
+import Error from "../../public/icons/error.svg";
 
 interface InputProps {
   id: string;
@@ -34,13 +34,14 @@ export const Input = (props: InputProps) => {
       </label>
       <input
         id={id}
+        aria-label={label}
         placeholder={label}
         {...(register &&
           register(id, {
             required: required,
           }))}
         {...rest}
-        className={`w-full h-9 p-2 rounded-md border-2 ${
+        className={`w-full h-9 p-2 rounded-md border hover:border-hca-grey-500 focus-visible:border focus-visible:border-hca-grey-500 focus-visible:outline-none placeholder:text-hca-grey-400 ${
           error ? "border-hca-red" : "border-hca-grey-200"
         } `}
       />
