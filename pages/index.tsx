@@ -3,6 +3,7 @@ import { Form } from "../components/Form/Form";
 import { Input } from "../components/Input/Input";
 import { Select } from "../components/Select/Select";
 import { countryOptions } from "../components/Select/Select.testdata";
+import { TextArea } from "../components/TextArea/TextArea";
 
 interface HomeProps {
   article: {
@@ -28,6 +29,7 @@ const Home = (props: HomeProps) => {
           options={countryOptions}
           required
         />
+        <TextArea id="more_info" label="More Info" required />
       </Form>
     </div>
   );
