@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { Datepicker } from "../components/Datepicker/Datepicker";
 import { Form } from "../components/Form/Form";
 import { Input } from "../components/Input/Input";
 import { Select } from "../components/Select/Select";
@@ -30,6 +31,8 @@ const Home = (props: HomeProps) => {
           required
         />
         <TextArea id="more_info" label="More Info" required />
+        <Datepicker id="date" label="Pick a date" required />
+        <div className="h-60"></div>
       </Form>
     </div>
   );

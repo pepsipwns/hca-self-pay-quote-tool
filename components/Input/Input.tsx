@@ -35,6 +35,7 @@ export const Input = (props: InputProps) => {
       <input
         id={id}
         aria-label={label}
+        aria-invalid={error}
         placeholder={label}
         {...(register &&
           register(id, {

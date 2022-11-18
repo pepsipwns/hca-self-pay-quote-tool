@@ -6,7 +6,6 @@ import {
 } from "react-hook-form";
 import ReactSelect, { components } from "react-select";
 import Error from "../../public/icons/error.svg";
-import ChevronDown from "../../public/icons/chevron-down.svg";
 
 interface SelectProps {
   id: string;
@@ -54,6 +53,7 @@ export const Select = (props: SelectProps) => {
           <ReactSelect
             id={id}
             aria-label={label}
+            aria-invalid={error}
             instanceId={id}
             options={options}
             value={options.find(
