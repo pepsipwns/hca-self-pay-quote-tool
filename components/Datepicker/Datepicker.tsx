@@ -31,38 +31,44 @@ export const Datepicker = (props: DatepickerProps) => {
 
   const error = errors ? errors[id]?.type === "required" : false;
 
-  const DatepickerInput = forwardRef<HTMLInputElement>(
-    ({ value, onClick }, ref) => (
-      <>
-        <div className="my-1">
-          <label
-            htmlFor={id}
-            className={`font-bold ${
-              error ? "text-hca-red" : "text-blue-900"
-            }`}
-          >
-            {label}
-          </label>
-        </div>
-        <div
-          onClick={onClick}
-          className={`flex flex-column items-center w-full h-9 p-2 rounded-md border hover:border-hca-grey-500 focus-visible:border focus-visible:border-hca-grey-500 focus-visible:outline-none placeholder:text-hca-grey-400 ${
-            error ? "border-hca-red" : "border-hca-grey-200"
-          } `}
+  type DatepickerProps = {
+    onClick?: () => void;
+    value?: string;
+  };
+
+  const DatepickerInput = forwardRef<
+    HTMLInputElement,
+    DatepickerProps
+  >(({ value, onClick }, ref) => (
+    <>
+      <div className="my-1">
+        <label
+          htmlFor={id}
+          className={`font-bold ${
+            error ? "text-hca-red" : "text-blue-900"
+          }`}
         >
-          <Calendar className="h-4 w-3 mr-1" />
-          <input
-            aria-label={label}
-            aria-invalid={error}
-            ref={ref}
-            placeholder={label}
-            defaultValue={value}
-            className="border-none outline-none boxShadow-none"
-          />
-        </div>
-      </>
-    )
-  );
+          {label}
+        </label>
+      </div>
+      <div
+        onClick={onClick}
+        className={`flex flex-column items-center w-full h-9 p-2 rounded-md border hover:border-hca-grey-500 focus-visible:border focus-visible:border-hca-grey-500 focus-visible:outline-none placeholder:text-hca-grey-400 ${
+          error ? "border-hca-red" : "border-hca-grey-200"
+        } `}
+      >
+        <Calendar className="h-4 w-3 mr-1" />
+        <input
+          aria-label={label}
+          aria-invalid={error}
+          ref={ref}
+          placeholder={label}
+          defaultValue={value}
+          className="border-none outline-none boxShadow-none"
+        />
+      </div>
+    </>
+  ));
   DatepickerInput.displayName = "DatepickerInput";
   return (
     <>
@@ -92,12 +98,6 @@ export const Datepicker = (props: DatepickerProps) => {
                 {
                   name: "arrow",
                   options: { padding: 16 },
-                },
-                {
-                  name: "flip",
-                  options: {
-                    fallbackPlacements: ["bottom-start"],
-                  },
                 },
                 {
                   name: "preventOverflow",

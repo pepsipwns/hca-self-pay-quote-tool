@@ -75,6 +75,15 @@ a {
   display: none !important;
   visibility: hidden !important;
 }
+.react-datepicker-popper[data-placement^="top"]
+  .react-datepicker__triangle {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.react-datepicker-popper[data-placement^="top"] {
+  transform: translate3d(80px, 230.4px, 0px) !important;
+}
 
 .react-datepicker__header {
   background-color: white !important;
@@ -137,4 +146,8 @@ a {
 }
 .react-datepicker__day:hover {
   background-color: #f3fafb !important;
+}
+.react-datepicker__day--today {
+  color: #04183d !important;
+  font-weight: 500 !important;
 }
