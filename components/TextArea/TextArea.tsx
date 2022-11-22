@@ -17,7 +17,7 @@ interface TextAreaProps {
   required?: boolean;
 }
 
-export const TextArea = (props: TextAreaProps) => {
+const TextArea = (props: TextAreaProps) => {
   const { id, label, register, errors, required, ...rest } = props;
 
   const error = errors && errors[id]?.type === "required";
@@ -60,3 +60,5 @@ TextArea.defaultProps = {
   errors: null,
   required: false,
 };
+
+export default TextArea;

@@ -6,7 +6,7 @@ interface LinkProps {
   label?: string;
 }
 
-export const Link = (props: LinkProps) => {
+const Link = (props: LinkProps) => {
   const { href, className, label } = props;
   return (
     <NextLink href={href} data-testid="HCALink">
@@ -25,3 +25,5 @@ Link.defaultProps = {
   classNames: "",
   label: "",
 };
+
+export default Link;

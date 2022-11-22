@@ -33,7 +33,7 @@ const getPadding = (size?: string) => {
   }
 };
 
-export const Button = (props: ButtonProps) => {
+const Button = (props: ButtonProps) => {
   const { variant, size, label, className } = props;
   return (
     <button
@@ -51,3 +51,5 @@ Button.defaultProps = {
   className: "",
   label: "",
 };
+
+export default Button;

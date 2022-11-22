@@ -17,7 +17,7 @@ interface InputProps {
   required?: boolean;
 }
 
-export const Input = (props: InputProps) => {
+const Input = (props: InputProps) => {
   const { id, label, register, errors, required, ...rest } = props;
 
   const error = errors && errors[id]?.type === "required";
@@ -61,3 +61,5 @@ Input.defaultProps = {
   errors: null,
   required: false,
 };
+
+export default Input;

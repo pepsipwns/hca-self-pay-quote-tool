@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { useForm } from "react-hook-form";
-import { Input } from "../Input/Input";
-import { Form } from "./Form";
+import Input from "../Input/Input";
+import Form from "./Form";
 
 describe("Form", () => {
   it("Form contains correct Inputs with labels", async () => {

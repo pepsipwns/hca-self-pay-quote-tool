@@ -69,6 +69,9 @@ module.exports = {
         normal: 300,
         medium: 400,
       },
+      minWidth: {
+        5: "2.5rem",
+      },
     },
   },
   variants: {

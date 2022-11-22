@@ -1,29 +1,38 @@
-import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
+import PageContainer from "../components/Containers/PageContainer";
 import { Datepicker } from "../components/Datepicker/Datepicker";
-import { Form } from "../components/Form/Form";
-import { Input } from "../components/Input/Input";
-import { Select } from "../components/Select/Select";
+import Form from "../components/Form/Form";
+import Input from "../components/Input/Input";
+import Select from "../components/Select/Select";
 import { countryOptions } from "../components/Select/Select.testdata";
-import { TextArea } from "../components/TextArea/TextArea";
+import TextArea from "../components/TextArea/TextArea";
+import { useAppContext } from "../context/AppContext";
 
-interface HomeProps {
-  article: {
-    author: string;
-    company: string;
-    image_url: string;
-    content: string;
-  };
-  showImage: boolean;
-}
+const Home = () => {
+  const {
+    quoteData,
+    setQuoteData,
+    setCurrentStep,
+    furthestStepReached,
+    setFurthestStepReached,
+  } = useAppContext();
+  const router = useRouter();
 
-const Home = (props: HomeProps) => {
+  setCurrentStep(1);
+  if (furthestStepReached < 1) {
+    setFurthestStepReached(1);
+  }
+
   return (
-    <div>
-      <Form onSubmit={(data) => console.log(data)} className="p-10">
-        <h1>Home</h1>
+    <PageContainer title="Personal Information">
+      <Form
+        onSubmit={(data) => {
+          setQuoteData({ ...quoteData, ...data });
+          router.push("/treatment");
+        }}
+        submitLabel="Next"
+      >
         <Input id="first_name" label="First Name" />
-        <Input id="last_name" label="Last Name" required />
-        <Input id="phone_no" label="Phone Number" required />
         <Select
           id="country"
           label="Country"
@@ -32,17 +41,13 @@ const Home = (props: HomeProps) => {
         />
         <TextArea id="more_info" label="More Info" required />
         <Datepicker id="date" label="Pick a date" required />
-        <div className="h-60"></div>
       </Form>
-    </div>
+    </PageContainer>
   );
 };
 
-Home.defaultProps = {
-  showImage: true,
-};
-
-// Simple API call example
+// Simple API call example - replace for data fetching from BE for labels, options etc
+//
 // export const getServerSideProps = async () => {
 //   const response = await fetch("http://localhost:3000/api/article");
 //   const data = await response.json();

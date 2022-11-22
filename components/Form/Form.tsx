@@ -1,20 +1,16 @@
 import { createElement, FormEventHandler, ReactNode } from "react";
-import {
-  FieldValues,
-  SubmitHandler,
-  useForm,
-  UseFormHandleSubmit,
-} from "react-hook-form";
-import { Button } from "../Button/Button";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import Button from "../Button/Button";
 
 interface FormProps {
   children: ReactNode;
   onSubmit: SubmitHandler<FieldValues>;
   className?: string;
+  submitLabel?: string;
 }
 
-export const Form = (props: FormProps) => {
-  const { children, onSubmit, className } = props;
+const Form = (props: FormProps) => {
+  const { children, onSubmit, className, submitLabel } = props;
 
   const {
     register,
@@ -43,7 +39,13 @@ export const Form = (props: FormProps) => {
               : child;
           })
         : []}
-      <Button label="Submit" className="mt-2" />
+      <Button label={submitLabel} className="mt-2" />
     </form>
   );
 };
+
+Form.defaultProps = {
+  submitLabel: "Submit",
+};
+
+export default Form;

@@ -4,7 +4,7 @@ import {
   renderHook,
 } from "@testing-library/react";
 import { useForm } from "react-hook-form";
-import { Select } from "./Select";
+import Select from "./Select";
 import { countryOptions } from "./Select.testdata";
 
 describe("Select", () => {

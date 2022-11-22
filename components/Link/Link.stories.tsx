@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { Link } from "./Link";
+import Link from "./Link";
 import { partialComponentName } from "../../utils/storybookConstants";
 
 export default {

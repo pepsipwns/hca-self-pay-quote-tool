@@ -20,7 +20,7 @@ interface SelectProps {
   options: { label: string; value: string }[];
 }
 
-export const Select = (props: SelectProps) => {
+const Select = (props: SelectProps) => {
   const { id, label, control, errors, required, options, ...rest } =
     props;
 
@@ -160,3 +160,5 @@ Select.defaultProps = {
   errors: null,
   required: false,
 };
+
+export default Select;

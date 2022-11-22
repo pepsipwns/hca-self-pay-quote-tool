@@ -1,9 +1,9 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { Form } from "./Form";
+import Form from "./Form";
 import { partialComponentName } from "../../utils/storybookConstants";
-import { Input } from "../Input/Input";
+import Input from "../Input/Input";
 import { FormProvider, useForm } from "react-hook-form";
 
 export default {

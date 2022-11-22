@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { Input } from "./Input";
+import Input from "./Input";
 
 describe("Input", () => {
   it("Input contains the correct label and placeholder", async () => {

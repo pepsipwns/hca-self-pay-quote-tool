@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { Link } from "./Link";
+import Link from "./Link";
 
 describe("Link", () => {
   it("Default link contains the correct label and href", async () => {

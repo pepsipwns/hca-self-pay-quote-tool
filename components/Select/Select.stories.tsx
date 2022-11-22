@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import { Select } from "./Select";
+import Select from "./Select";
 import { partialComponentName } from "../../utils/storybookConstants";
 import { countryOptions } from "./Select.testdata";
 import { renderHook } from "@testing-library/react";

@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import { Button } from "./Button";
+import Button from "./Button";
 
 describe("Button", () => {
   it("Primary variant contains the correct label and style", async () => {
