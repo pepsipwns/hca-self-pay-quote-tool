@@ -100,6 +100,16 @@ export const Datepicker = (props: DatepickerProps) => {
                   options: { padding: 16 },
                 },
                 {
+                  name: "flip",
+                  options: {
+                    fallbackPlacements: ["bottom-start", "top-start"],
+                    allowedAutoPlacements: [
+                      "bottom-start",
+                      "top-start",
+                    ],
+                  },
+                },
+                {
                   name: "preventOverflow",
                   enabled: false,
                 },

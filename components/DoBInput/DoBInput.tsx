@@ -7,7 +7,7 @@ import Error from "../../public/icons/error.svg";
 
 interface InputProps {
   id: string;
-  label?: string;
+  label: string;
   register?: UseFormRegister<FieldValues>;
   errors?: Partial<
     FieldErrorsImpl<{
@@ -15,47 +15,34 @@ interface InputProps {
     }>
   >;
   required?: boolean;
-  className?: string;
-  placeholder?: string;
 }
 
 const Input = (props: InputProps) => {
-  const {
-    id,
-    label,
-    register,
-    errors,
-    required,
-    className,
-    placeholder,
-    ...rest
-  } = props;
+  const { id, label, register, errors, required, ...rest } = props;
 
   const error = errors && errors[id]?.type === "required";
 
   return (
     <>
-      {label && (
-        <label
-          htmlFor={id}
-          className={`my-1 font-bold ${
-            error ? "text-hca-red" : "text-blue-900"
-          }`}
-        >
-          {label}
-        </label>
-      )}
+      <label
+        htmlFor={id}
+        className={`my-1 font-bold ${
+          error ? "text-hca-red" : "text-blue-900"
+        }`}
+      >
+        {label}
+      </label>
       <input
         id={id}
-        aria-label={label ? label : id}
+        aria-label={label}
         aria-invalid={error}
-        placeholder={label ? label : placeholder}
+        placeholder={label}
         {...(register &&
           register(id, {
             required: required,
           }))}
         {...rest}
-        className={`${className} h-9 p-2 rounded-md border hover:border-hca-grey-500 focus-visible:border focus-visible:border-hca-grey-500 focus-visible:outline-none placeholder:text-hca-grey-400 ${
+        className={`w-full h-9 p-2 rounded-md border hover:border-hca-grey-500 focus-visible:border focus-visible:border-hca-grey-500 focus-visible:outline-none placeholder:text-hca-grey-400 ${
           error ? "border-hca-red" : "border-hca-grey-200"
         } `}
       />
@@ -70,12 +57,9 @@ const Input = (props: InputProps) => {
 };
 
 Input.defaultProps = {
-  label: undefined,
   register: null,
   errors: null,
   required: false,
-  className: "w-full",
-  placeholder: "",
 };
 
 export default Input;

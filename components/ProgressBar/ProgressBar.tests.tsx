@@ -1,9 +1,5 @@
 import { render } from "@testing-library/react";
-import { AppProvider, useAppContext } from "../../context/AppContext";
-import {
-  salesTeamSteps,
-  salesTeamStepsStep2Active,
-} from "../../utils/stepsConstants";
+import { salesTeamSteps } from "../../utils/stepsConstants";
 import ProgressBar from "./ProgressBar";
 
 describe("ProgressBar", () => {

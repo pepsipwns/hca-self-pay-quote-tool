@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import PageContainer from "../components/Containers/PageContainer";
+import CountrySelect from "../components/CountrySelect/CountrySelect";
 import { Datepicker } from "../components/Datepicker/Datepicker";
 import Form from "../components/Form/Form";
 import Input from "../components/Input/Input";
@@ -23,22 +24,42 @@ const Home = () => {
     setFurthestStepReached(1);
   }
 
+  const cleanData = (data: any) => {
+    console.log("cleanData", data);
+    const { dob_day, dob_month, dob_year, ...rest } = data;
+    return {
+      ...rest,
+      date_of_birth: `${dob_day}-${dob_month}-${dob_year}`,
+    };
+  };
+
   return (
     <PageContainer title="Personal Information">
       <Form
         onSubmit={(data) => {
-          setQuoteData({ ...quoteData, ...data });
+          setQuoteData({ ...quoteData, ...cleanData(data) });
           router.push("/treatment");
         }}
         submitLabel="Next"
       >
         <Input id="first_name" label="First Name" />
-        <Select
-          id="country"
-          label="Country"
-          options={countryOptions}
-          required
-        />
+        <Input id="last_name" label="Last Name" />
+        <label
+          htmlFor="dob_day"
+          className={`my-1 font-bold text-blue-900`}
+        >
+          Date of Birth
+        </label>
+        <div>
+          <Input id="dob_day" placeholder="31" className="w-8 mr-2" />
+          <Input
+            id="dob_month"
+            placeholder="12"
+            className="w-8 mr-2"
+          />
+          <Input id="dob_year" placeholder="2020" className="w-40" />
+        </div>
+        <CountrySelect id="country" label="Country" required />
         <TextArea id="more_info" label="More Info" required />
         <Datepicker id="date" label="Pick a date" required />
       </Form>

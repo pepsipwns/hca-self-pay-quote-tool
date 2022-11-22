@@ -4,6 +4,7 @@ export interface QuoteContextInterface {
   email?: string;
   phone?: string;
   date?: string;
+  date_of_birth?: string;
   diagnosis?: string;
   treatment?: string;
 }
@@ -23,6 +24,7 @@ export const defaultState: ContextInterface = {
     email: "",
     phone: "",
     date: "",
+    date_of_birth: "",
   },
   setQuoteData: () => {},
   currentStep: 1,

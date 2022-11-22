@@ -19,26 +19,44 @@ const Form = (props: FormProps) => {
     formState: { errors },
   } = useForm();
 
+  const organiseForm = (childs: ReactNode) => {
+    let elementToReturn: ReactNode[] = [];
+    if (Array.isArray(childs)) {
+      childs.map((child) => {
+        if (child.props.id) {
+          elementToReturn.push(
+            createElement(child.type, {
+              ...{
+                ...child.props,
+                register,
+                control,
+                errors,
+                key: child.props.id,
+              },
+            })
+          );
+        } else {
+          if (Array.isArray(child.props.children)) {
+            elementToReturn.push(
+              <div className="flex flex-row">
+                {organiseForm(child.props.children)}
+              </div>
+            );
+          } else {
+            elementToReturn.push(child);
+          }
+        }
+      });
+    }
+    return elementToReturn;
+  };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className={`flex flex-col ${className}`}
     >
-      {Array.isArray(children)
-        ? children.map((child) => {
-            return child.props.id
-              ? createElement(child.type, {
-                  ...{
-                    ...child.props,
-                    register,
-                    control,
-                    errors,
-                    key: child.props.id,
-                  },
-                })
-              : child;
-          })
-        : []}
+      {organiseForm(children)}
       <Button label={submitLabel} className="mt-2" />
     </form>
   );

@@ -86,7 +86,7 @@ a {
 }
 
 .react-datepicker-popper[data-placement^="top"] {
-  transform: translate3d(80px, 230.4px, 0px) !important;
+  margin-bottom: -54px;
 }
 
 .react-datepicker__header {
