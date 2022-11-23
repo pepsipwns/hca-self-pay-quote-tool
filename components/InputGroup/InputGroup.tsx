@@ -61,6 +61,7 @@ const InputGroup = (props: InputGroupProps) => {
       <div className="flex flex-row">
         {inputs.map((input) => (
           <input
+            data-testid="group-input"
             key={input.id}
             id={input.id}
             aria-label={input.label ? input.label : input.id}

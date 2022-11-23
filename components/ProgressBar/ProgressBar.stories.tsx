@@ -2,11 +2,11 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import ProgressBar from "./ProgressBar";
-import { partialComponentName } from "../../utils/storybookConstants";
+import { websiteComponentName } from "../../utils/storybookConstants";
 import { salesTeamSteps } from "../../utils/stepsConstants";
 
 export default {
-  title: `${partialComponentName}/ProgressBar`,
+  title: `${websiteComponentName}/Progress Bar`,
   component: ProgressBar,
 } as ComponentMeta<typeof ProgressBar>;
 

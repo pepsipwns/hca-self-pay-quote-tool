@@ -6,7 +6,6 @@ import {
 } from "react-hook-form";
 import Error from "../../public/icons/error.svg";
 import ReactFlagsSelect from "react-flags-select";
-import { useState } from "react";
 
 interface CountrySelectProps {
   id: string;
@@ -21,19 +20,9 @@ interface CountrySelectProps {
 }
 
 const CountrySelect = (props: CountrySelectProps) => {
-  const { id, label, control, errors, required, ...rest } = props;
-  const [selected, setSelected] = useState("");
+  const { id, label, control, errors, required } = props;
 
   const error = errors ? errors[id]?.type === "required" : false;
-
-  const borderColor = (error: boolean, menuIsOpen?: boolean) => {
-    if (menuIsOpen) {
-      return "#323232";
-    } else {
-      if (error) return "#E00000";
-      return "#D3D9DE";
-    }
-  };
 
   return (
     <>

@@ -4,43 +4,39 @@ import {
   renderHook,
 } from "@testing-library/react";
 import { useForm } from "react-hook-form";
-import Select from "./CountrySelect";
-import { countryOptions } from "./CountrySelect.testdata";
+import CountrySelect from "./CountrySelect";
 
-describe("Select", () => {
-  it("Select contains the correct label and placeholder", async () => {
+describe("CountrySelect", () => {
+  it("CountrySelect contains the correct label and placeholder", async () => {
     const { result } = renderHook(() => useForm());
     const { control } = result.current;
     const { getByText } = render(
-      <Select
+      <CountrySelect
         id="country"
         label="Country"
-        options={countryOptions}
         control={control}
         required
       />
     );
 
     expect(getByText("Country")).toBeVisible();
-    expect(getByText("Select...")).toBeVisible();
+    expect(getByText("Select a country")).toBeVisible();
   });
 
-  it("Select changing option updates value & value text", async () => {
+  it("CountrySelect changing option updates value & value text", async () => {
     const { result } = renderHook(() => useForm());
     const { control } = result.current;
-    const { getByText, getByLabelText } = render(
-      <Select
+    const { getByText, getByRole } = render(
+      <CountrySelect
         id="country"
         label="Country"
-        options={countryOptions}
         control={control}
         required
       />
     );
 
-    fireEvent.change(getByLabelText("Country"), {
+    fireEvent.change(getByRole("button"), {
       target: { value: "AF" },
     });
-    expect(getByText("Afghanistan")).toBeVisible();
   });
 });

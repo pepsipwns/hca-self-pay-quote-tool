@@ -41,7 +41,7 @@ export const Datepicker = (props: DatepickerProps) => {
     DatepickerProps
   >(({ value, onClick }, ref) => (
     <>
-      <div className="my-1">
+      <div className="my-1" data-testid="datepicker">
         <label
           htmlFor={id}
           className={`font-bold ${
@@ -69,7 +69,7 @@ export const Datepicker = (props: DatepickerProps) => {
       </div>
     </>
   ));
-  DatepickerInput.displayName = "DatepickerInput";
+  DatepickerInput.displayName = "Datepicker";
   return (
     <>
       <Controller
@@ -79,6 +79,7 @@ export const Datepicker = (props: DatepickerProps) => {
         render={({ field }) => (
           <>
             <ReactDatePicker
+              data-testid="datepicker"
               selected={startDate}
               onChange={(val: Date) => {
                 setStartDate(val);
