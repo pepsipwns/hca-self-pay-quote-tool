@@ -4,6 +4,7 @@ import CountrySelect from "../components/CountrySelect/CountrySelect";
 import { Datepicker } from "../components/Datepicker/Datepicker";
 import Form from "../components/Form/Form";
 import Input from "../components/Input/Input";
+import InputGroup from "../components/InputGroup/InputGroup";
 import Select from "../components/Select/Select";
 import { countryOptions } from "../components/Select/Select.testdata";
 import TextArea from "../components/TextArea/TextArea";
@@ -29,7 +30,7 @@ const Home = () => {
     const { dob_day, dob_month, dob_year, ...rest } = data;
     return {
       ...rest,
-      date_of_birth: `${dob_day}-${dob_month}-${dob_year}`,
+      date_of_birth: `${dob_day}/${dob_month}/${dob_year}`,
     };
   };
 
@@ -44,21 +45,28 @@ const Home = () => {
       >
         <Input id="first_name" label="First Name" />
         <Input id="last_name" label="Last Name" />
-        <label
-          htmlFor="dob_day"
-          className={`my-1 font-bold text-blue-900`}
-        >
-          Date of Birth
-        </label>
-        <div>
-          <Input id="dob_day" placeholder="31" className="w-8 mr-2" />
-          <Input
-            id="dob_month"
-            placeholder="12"
-            className="w-8 mr-2"
-          />
-          <Input id="dob_year" placeholder="2020" className="w-40" />
-        </div>
+        <InputGroup
+          id="date_of_birth"
+          label="Date of Birth"
+          required
+          inputs={[
+            {
+              id: "dob_day",
+              placeholder: "31",
+              className: "w-8 mr-2",
+            },
+            {
+              id: "dob_month",
+              placeholder: "12",
+              className: "w-8 mr-2",
+            },
+            {
+              id: "dob_year",
+              placeholder: "2021",
+              className: "w-40",
+            },
+          ]}
+        />
         <CountrySelect id="country" label="Country" required />
         <TextArea id="more_info" label="More Info" required />
         <Datepicker id="date" label="Pick a date" required />

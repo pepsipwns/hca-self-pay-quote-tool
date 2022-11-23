@@ -36,15 +36,7 @@ const Form = (props: FormProps) => {
             })
           );
         } else {
-          if (Array.isArray(child.props.children)) {
-            elementToReturn.push(
-              <div className="flex flex-row">
-                {organiseForm(child.props.children)}
-              </div>
-            );
-          } else {
-            elementToReturn.push(child);
-          }
+          elementToReturn.push(child);
         }
       });
     }

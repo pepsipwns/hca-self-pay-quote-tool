@@ -27,7 +27,7 @@ interface DatepickerProps {
 export const Datepicker = (props: DatepickerProps) => {
   const { id, label, control, required, errors, className } = props;
 
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState<Date>();
 
   const error = errors ? errors[id]?.type === "required" : false;
 
