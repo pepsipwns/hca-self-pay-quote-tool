@@ -9,6 +9,13 @@ const nextConfig = {
     });
     return config;
   },
+  exportPathMap: async function (defaultPathMap) {
+    return {
+      "/": { page: "/" },
+      "/": { page: "/treatment" },
+      "/": { page: "/summary" },
+    };
+  },
 };
 
 module.exports = nextConfig;
